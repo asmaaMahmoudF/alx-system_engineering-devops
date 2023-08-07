@@ -1,2 +1,2 @@
 #!/bin/bash
-touch a-{1..10}
+ls | head -n 10 
