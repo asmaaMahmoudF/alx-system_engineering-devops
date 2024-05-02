@@ -6,7 +6,7 @@ i=0
 while ((i < 10)); do 
     if [ "$i" -eq 8 ]; then
         echo "hi"
-	fi
+    fi
     echo "Best School"
     i=$((i + 1))
 done
