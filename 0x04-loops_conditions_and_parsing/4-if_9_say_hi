@@ -3,8 +3,8 @@
 i=0
 
 while ((i < 10)); do 
-	if [ "$i" -eq 9 ]; then
-		echo "hi"
+	if [ $i -eq 9 ]; then
+		echo "Hi"
 	fi
 	echo "Best School"
 	i=$((i + 1))
