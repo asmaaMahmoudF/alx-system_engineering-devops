@@ -14,7 +14,7 @@ while ((i <= 20)); do
 		;;
 	17)
 		echo $i
-		echo "Best Schoolbad luck from Italy"
+		echo "bad luck from Italy"
 		;;
 	*)
 		echo $i
