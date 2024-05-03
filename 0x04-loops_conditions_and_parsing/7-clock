@@ -10,5 +10,5 @@ while ((hou <= 12)); do
 		min=$((min+1))
 		done
 	hou=$((hou+1))
-	min=0
+	min=1
 done
