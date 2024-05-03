@@ -4,10 +4,11 @@ hou=0
 min=1
 
 while ((hou <= 12)); do 
+	echo "Hour: $hou"
 	while ((min <= 59)); do
 		echo $min
 		min=$((min+1))
 		done
-	echo $hou
 	hou=$((hou+1))
-done | head -n 70
+	min=0
+done
