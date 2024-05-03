@@ -10,4 +10,4 @@ while ((hou <= 12)); do
 		done
 	echo $hou
 	hou=$((hou+1))
-done
+done | head -n 70
