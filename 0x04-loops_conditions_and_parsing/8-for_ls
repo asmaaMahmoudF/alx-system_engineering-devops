@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script is displaying "the all files in the current directory "
 
-ls  -1 | awk -F '-' '{print $2}'
+f ls  -1 | awk -F '-' '{print $2}'
