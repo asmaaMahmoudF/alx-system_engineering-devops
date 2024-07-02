@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# a code to fix the proplem in the code
+
+# Update package lists and install Nginx
+rm /etc/nginx/sites-enabled/default
+# Create a symbolic link to the default Nginx configuration
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# Start nginx service to apply the changes
+service nginx start
