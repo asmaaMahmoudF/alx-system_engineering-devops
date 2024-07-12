@@ -1,34 +1,16 @@
 #!/usr/bin/env bash
-# Function to get DNS information
+# print domains and subdomains
 
-get_dns_info() {
-    local domain=$1
-    local subdomain=$2
-    local full_domain="${subdomain}.${domain}"
-
-    # Get the A record for the full domain
-    record=$(dig +short "${full_domain}")
-
-    if [ -z "$record" ]; then
-        echo "No DNS record found for ${full_domain}"
-    else
-        echo "The subdomain ${subdomain} is an A record and points to ${record}"
-    fi
+print_domain_subdomain () {
+    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " ' NR==2 { print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
 }
-domain=$1
-subdomain=$2
 
-if [ -z "$domain" ]; then
-    echo "Usage: $0 <domain> [subdomain]"
-    exit 1
-fi
-
-if [ -z "$subdomain" ]; then
-    # If no subdomain is provided, check for all required subdomains
-    for sub in "www" "lb-01" "web-01" "web-02"; do
-        get_dns_info "$domain" "$sub"
-    done
+if [ "$#" -eq 2 ]
+then
+    print_domain_subdomain "$2.$1" "$2"
 else
-    # If a specific subdomain is provided, check only that subdomain
-    get_dns_info "$domain" "$subdomain"
+    print_domain_subdomain "www.$1" "www"
+    print_domain_subdomain "lb-01.$1" "lb-01"
+    print_domain_subdomain "web-01.$1" "web-01"
+    print_domain_subdomain "web-02.$1" "web-02"
 fi
