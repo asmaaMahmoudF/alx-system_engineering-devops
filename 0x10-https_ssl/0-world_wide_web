@@ -15,8 +15,6 @@ get_dns_info() {
         echo "The subdomain ${subdomain} is an A record and points to ${record}"
     fi
 }
-
-# Main script logic
 domain=$1
 subdomain=$2
 
