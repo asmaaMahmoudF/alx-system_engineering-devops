@@ -1,1 +1,2 @@
-This is my read me file
+#!/usr/bin/env bash
+0x10 HTTPS SSL
